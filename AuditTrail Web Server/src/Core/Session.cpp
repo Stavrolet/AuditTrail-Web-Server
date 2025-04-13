@@ -1,3 +1,6 @@
+#include <boost/beast/http/read.hpp>
+#include <boost/beast/http/write.hpp>
+
 #include "Session.h"
 
 namespace AuditTrail
@@ -13,6 +16,7 @@ namespace AuditTrail
 
 	void Session::HandleRequest()
 	{
+	    http::response<http::string_body> response;
 		response.version(request.version());
 		response.keep_alive(request.keep_alive());
 		response.result(http::status::ok);
